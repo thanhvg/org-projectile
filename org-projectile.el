@@ -331,7 +331,8 @@ compute this path."
                   :category project
                   :template org-projectile-capture-template
                   :strategy org-projectile-strategy
-                  :options nil)))
+                  :options nil)
+   t))
 
 ;;;###autoload
 (defun org-projectile-single-file ()

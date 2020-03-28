@@ -100,9 +100,11 @@
       (org-capture-put :target-entry-p (occ-target-entry-p strategy context))
       (org-capture-place-template 't))))
 
-(defun occ-capture-goto-marker (context)
+(defun occ-capture-goto-marker (context &optional should-show-p)
   (let ((marker (occ-get-capture-marker context)))
-    (set-buffer (marker-buffer marker))
+    (if should-show-p
+        (switch-to-buffer (marker-buffer marker))
+      (set-buffer (marker-buffer marker)))
     (goto-char (marker-position marker))))
 
 (defmethod occ-get-capture-marker ((context occ-context))
